@@ -69,6 +69,7 @@ const gameOver = () => {
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
 
+
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
