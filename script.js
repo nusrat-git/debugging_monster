@@ -11,7 +11,7 @@ let userText = "";
 let errorCount = 0;
 let startTime;
 let questionText = "";
-let position=0;
+let position;
 
 // Load and display question
 fetch("./texts.json")
@@ -53,7 +53,7 @@ const typeController = (e) => {
   if(questionText.charAt(position) !== newLetter){
       errorCount+=1;
     }
-    
+    console.log(position);
     position+=1;
 
   // check if given question text is equal to user typed text
@@ -111,7 +111,8 @@ const closeModal = () => {
 const start = () => {
   // If already started, do not start again
   if (startTime) return;
-
+  
+  position=0;
   let count = 3;
   countdownOverlay.style.display = "flex";
 
