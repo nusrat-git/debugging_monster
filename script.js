@@ -73,8 +73,7 @@ const gameOver = () => {
   document.removeEventListener("keydown", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
-  const a = new Date().getTime();
-  const finishTime = parseInt(a);
+  const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
 
 
@@ -127,8 +126,7 @@ const start = () => {
 
       clearInterval(startCountdown);
       countdownOverlay.style.display = 'none';
-      const b= new Date().getTime();
-      startTime = Math.floor(b);
+      startTime = new Date().getTime();
     }
     count--;
   }, 1000);
@@ -142,8 +140,7 @@ displayHistory();
 
 // Show typing time spent
 setInterval(() => {
-  const c = new Date().getTime();
-  const currentTime = parseInt(c);
+  const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
 
 
