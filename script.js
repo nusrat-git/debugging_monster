@@ -4,6 +4,7 @@ const startBtn = document.getElementById("starts");
 const countdownOverlay = document.getElementById("countdown");
 const resultModal = document.getElementById("result");
 const modalBackground = document.getElementById("modal-background");
+const showTime = document.getElementById("show-time");
 
 // variables
 let userText = "";
@@ -74,8 +75,8 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = (finishTime - startTime) / 1000;
-
+  const timeTaken = parseInt((finishTime - startTime) / 1000);
+  
 
   // show result modal
   resultModal.innerHTML = "";
@@ -143,6 +144,7 @@ setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = (currentTime - startTime) / 1000;
 
-
-  document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
+  let showTimeText = `${startTime ? timeSpent : 0}`;
+  let timeInt = showTimeText.split('.')
+  showTime.innerHTML = `${timeInt[0]} seconds`;
 }, 1000);
