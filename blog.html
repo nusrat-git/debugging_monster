@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1 class="font-bold text-center text-5xl m-6 p-6">Blogs</h1>
+    <div class="m-8 p-6 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div>
+            <h1 class="text-center text-4xl font-semibold">What are the differences between session storage and local storage?</h1>
+            <div class="">
+                <ul class="list-disc text-xl m-6 p-6">
+                    <h1 class="text-2xl font-bold p-4">Local Storage</h1>
+                    <li>The storage capacity of local storage is 5MB/10MB</li>
+                    <li>As it is not session-based, it must be deleted via javascript or manually</li>
+                    <li>The client can only read local storage</li>
+                    <li>There is no transfer of data to the server</li>
+                    <li>There are fewer old browsers that support it</li>
+                </ul>
+                <ul class="list-disc text-xl m-6 p-6">
+                    <h1 class="text-2xl font-bold p-4">Session Storage</h1>
+                    <li>The storage capacity of session storage is 5MB</li>
+                    <li>It’s session-based and works per window or tab. This means that data is stored only for the
+                        duration
+                        of a session, i.e., until the browser (or tab) is closed</li>
+                    <li>The client can only read local storage</li>
+                    <li>There is no transfer of data to the server</li>
+                    <li>There are fewer old browsers that support it</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <h1 class="text-center text-4xl font-semibold">What are the differences between global scope and block scope?</h1>
+            <div class="p-5">
+                <p class="text-xl m-6 p-6">
+                    The variables defined outside of any function or curly brackets are known as global variables and
+                    have
+                    global scope. Global scope means that the variables can be accessed from any part of that program,
+                    any
+                    function or conditional state can access that variable.
+                    It is not a good practice to use global variables when they are not needed as every code block will
+                    have
+                    access to those variables.
+                    <br>
+                    For example:
+                    var name = "linuxHint";
+
+                    function printName(){
+                    // the variable can be accessed inside here
+                    console.log("This tutorial is by "+name);
+                    }
+
+                    printName();
+                    
+                </p>
+                <p class="text-xl m-6 p-6">
+                    Block scope is also a sub-type of local scope. The block scope can be defined as the scope of the
+                    variables inside the curly brackets {}. Now, these curly brackets can be of loops, or conditional
+                    statements, or something else. You are only allowed to refer to these variables from within the
+                    curly
+                    brackets {}.
+                </p>
+
+            </div>
+        </div>
+        <div>
+            <h1 class="text-center text-4xl font-semibold">How event loop works?</h1>
+            <p class="text-xl m-6 p-6">
+                The event loop is the secret behind JavaScript’s asynchronous programming. JS executes all operations on
+                a
+                single thread, but using a few smart data structures, it gives us the illusion of multi-threading. Let’s
+                take a look at what happens on the back-end.
+                <br>
+                The call stack is responsible for keeping track of all the operations in line to be executed. Whenever a
+                function is finished, it is popped from the stack.
+                <br>
+                The event queue is responsible for sending new functions to the stack for processing. It follows the
+                queue
+                data structure to maintain the correct sequence in which all operations should be sent for execution.
+                <br>
+                Whenever an async function is called, it is sent to a browser API. These are APIs built into the
+                browser.
+                Based on the command received from the call stack, the API starts its own single-threaded operation.
+
+                An example of this is the setTimeout method. When a setTimeout operation is processed in the stack, it
+                is
+                sent to the corresponding API which waits till the specified time to send this operation back in for
+                processing.
+
+                Where does it send the operation? The event queue. Hence, we have a cyclic system for running async
+                operations in JavaScript. The language itself is single-threaded, but the browser APIs act as separate
+                threads.
+
+                The event loop facilitates this process; it constantly checks whether or not the call stack is empty. If
+                it
+                is empty, new functions are added from the event queue. If it is not, then the current function call is
+                processed.
+            </p>
+        </div>
+        <div>
+            <h1 class=" text-center text-4xl font-semibold">Different ways to get undefined.</h1>
+            <p class="text-xl m-6 p-6">
+                undefined is a property of the global object. That is, it is a variable in global scope. The initial
+                value
+                of undefined is the primitive value undefined.
+
+                In all non-legacy browsers, undefined is a non-configurable, non-writable property. (Even when this is
+                not
+                the case, avoid overriding it.)
+
+                A variable that has not been assigned a value is of type undefined. A method or statement also returns
+                undefined if the variable that is being evaluated does not have an assigned value. A function returns
+                undefined if a value was not returned.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

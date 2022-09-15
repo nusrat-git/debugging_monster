@@ -15,7 +15,7 @@ let questionText = "";
 fetch("./texts.json")
   .then((res) => res.json())
   .then((data) => {
-    questionText = data[Math.floor(Math.random() * data.length)];
+    questionText = data[parseInt(Math.random() * data.length)];
     question.innerHTML = questionText;
   });
 
@@ -66,7 +66,8 @@ const gameOver = () => {
   document.removeEventListener("keydown", typeController);
   // the current time is the finish time
   // so total time taken is current time - start time
-  const finishTime = new Date().getTime();
+  const a = new Date().getTime();
+  const finishTime = parseInt(a);
   const timeTaken = (finishTime - startTime) / 1000;
 
 
@@ -119,7 +120,8 @@ const start = () => {
 
       clearInterval(startCountdown);
       countdownOverlay.style.display = 'none';
-      startTime = new Date().getTime();
+      const b= new Date().getTime();
+      startTime = Math.floor(b);
     }
     count--;
   }, 1000);
@@ -133,7 +135,8 @@ displayHistory();
 
 // Show typing time spent
 setInterval(() => {
-  const currentTime = new Date().getTime();
+  const c = new Date().getTime();
+  const currentTime = parseInt(c);
   const timeSpent = (currentTime - startTime) / 1000;
 
 
